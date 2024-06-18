@@ -2,16 +2,13 @@ import { Blog } from 'src/blog/entities/blog.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class Tag {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 100 })
-  username: string;
+  @Column()
+  name: string;
 
-  @Column({ length: 100 })
-  password: string;
-
-  @OneToMany(() => Blog, (blog) => blog.user)
-  blogs: Blog[];
+  @OneToMany(() => Blog, (blog) => blog.tag)
+  blog: Blog;
 }

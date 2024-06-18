@@ -5,7 +5,6 @@ import { UserController } from './user.controller';
 import { User } from './entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-// import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
   imports: [
@@ -19,7 +18,6 @@ import { PassportModule } from '@nestjs/passport';
     PassportModule,
   ],
   controllers: [UserController],
-  // providers: [UserService, LocalStrategy],
   providers: [UserService],
 })
 export class UserModule {}

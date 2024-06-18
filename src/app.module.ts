@@ -4,6 +4,12 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
+import { BlogModule } from './blog/blog.module';
+import { Blog } from './blog/entities/blog.entity';
+import { CommentModule } from './comment/comment.module';
+import { Comment } from './comment/entities/comment.entity';
+import { TagModule } from './tag/tag.module';
+import { Tag } from './tag/entities/tag.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -13,10 +19,13 @@ import { UserModule } from './user/user.module';
       username: 'root',
       password: '',
       database: 'datawow',
-      entities: [User],
+      entities: [User, Blog, Comment, Tag],
       synchronize: true,
     }),
     UserModule,
+    BlogModule,
+    CommentModule,
+    TagModule,
   ],
   controllers: [AppController],
   providers: [AppService],

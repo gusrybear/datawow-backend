@@ -53,6 +53,7 @@ export class UserService {
 
   async user(request: Request) {
     try {
+      console.log(request.cookies);
       const cookie = request.cookies['jwt'];
       const data: {
         id: string;
